@@ -52,7 +52,12 @@ const newData =  weatherData.filter(item => {
  console.log(newData)
  setWeatherData(newData)
 }
-
+const handleKeypress = e => {
+  //it triggers by pressing the enter key
+if (e.key === "Enter") {
+  update()
+}
+};
   return (
     <div className="Main">
         <Helmet bodyAttributes={{ style: "background-color :" + blueColor  }} />
@@ -65,6 +70,7 @@ const newData =  weatherData.filter(item => {
           className="locationInput" 
           onChange={addlocation}
           value={city}
+          onKeyPress={handleKeypress}
           />
           <button className="btn" onClick={update }><BsFillCursorFill size={30}/></button>
         </div>
